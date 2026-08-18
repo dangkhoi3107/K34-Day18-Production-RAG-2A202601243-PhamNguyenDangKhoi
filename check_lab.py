@@ -9,6 +9,7 @@ import json
 import os
 import sys
 import subprocess
+import re
 
 if hasattr(sys.stdout, "reconfigure"):
     try:
@@ -68,15 +69,13 @@ def run_tests() -> tuple[int, int]:
         )
         lines = result.stdout.strip().split("\n")
         summary = lines[-1] if lines else ""
-        # Parse "X passed, Y failed" or "X passed"
-        passed = total = 0
-        for part in summary.split(","):
-            part = part.strip()
-            if "passed" in part:
-                passed = int(part.split()[0])
-                total += passed
-            if "failed" in part:
-                total += int(part.split()[0])
+        # "-v" làm pytest in summary có viền "=" (VD: "==== 37 passed in 1.2s ===="),
+        # nên không thể lấy token đầu tiên sau khi split(",") — phải dùng regex
+        # để tìm đúng số đứng trước "passed"/"failed" bất kể có viền hay không.
+        passed_match = re.search(r"(\d+)\s+passed", summary)
+        failed_match = re.search(r"(\d+)\s+failed", summary)
+        passed = int(passed_match.group(1)) if passed_match else 0
+        total = passed + (int(failed_match.group(1)) if failed_match else 0)
         return passed, total
     except Exception as e:
         print(f"  ⚠️  pytest error: {e}")
