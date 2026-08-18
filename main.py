@@ -9,7 +9,15 @@ Usage:
 
 import json
 import os
+import sys
 import time
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 
 def main():
@@ -34,9 +42,11 @@ def main():
     prod_results = evaluate_pipeline(search, reranker)
 
     # Move reports to reports/
+    # os.replace (không phải os.rename): trên Windows os.rename raise
+    # FileExistsError nếu file đích đã tồn tại → lần chạy thứ 2 sẽ crash.
     for f in ["ragas_report.json", "naive_baseline_report.json"]:
         if os.path.exists(f):
-            os.rename(f, f"reports/{f}")
+            os.replace(f, os.path.join("reports", f))
 
     # Step 3: Comparison
     print("\n📌 STEP 3: Comparison")

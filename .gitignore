@@ -6,3 +6,8 @@ __pycache__/
 qdrant_data/
 *.egg-info/
 reports/*.json
+# 2 report này là deliverable bắt buộc → phải commit
+!reports/ragas_report.json
+!reports/naive_baseline_report.json
+# giữ report v1 làm bằng chứng A/B chunking (xem analysis/failure_analysis.md)
+!reports/ragas_report_v1_hierarchical.json

@@ -10,6 +10,13 @@ import os
 import sys
 import subprocess
 
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 
 def check_file(path: str, required: bool = True) -> bool:
     if os.path.exists(path):
@@ -56,7 +63,8 @@ def run_tests() -> tuple[int, int]:
     try:
         result = subprocess.run(
             [sys.executable, "-m", "pytest", "tests/", "-v", "--tb=no", "-q"],
-            capture_output=True, text=True, timeout=120,
+            capture_output=True, text=True, timeout=1800,
+            encoding="utf-8", errors="replace",
         )
         lines = result.stdout.strip().split("\n")
         summary = lines[-1] if lines else ""

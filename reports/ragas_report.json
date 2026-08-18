@@ -1,0 +1,161 @@
+{
+  "aggregate": {
+    "faithfulness": 0.7416666666666666,
+    "answer_relevancy": 0.727581056399835,
+    "context_precision": 0.9041666666214582,
+    "context_recall": 0.8916666666666666
+  },
+  "num_questions": 20,
+  "failures": [
+    {
+      "question": "Nếu cần mua một chiếc laptop 30 triệu cho nhân viên mới, ai phê duyệt và cần gì từ phòng CNTT?",
+      "answer": "Không tìm thấy.",
+      "ground_truth": "Laptop 30 triệu nằm trong khoảng 5-50 triệu nên cần Giám đốc phòng ban (Director) phê duyệt. Ngoài ra, mua sắm thiết bị CNTT cần có xác nhận cấu hình kỹ thuật từ phòng CNTT trước khi đề xuất. Cần đính kèm ít nhất 3 báo giá vì trên 10 triệu.",
+      "contexts": [
+        "Đoạn văn nằm trong phần hướng dẫn về quy trình mua sắm thiết bị CNTT trong tài liệu.\n\nMua sắm thiết bị CNTT (laptop, server, phần mềm) cần có xác nhận của phòng CNTT về cấu hình kỹ thuật trước khi đề xuất. Đơn hàng khẩn cấp có thể bỏ qua yêu cầu 3 báo giá nhưng phải có giải trình bằng văn bản.",
+        "Đoạn văn nằm trong phần quy định về tạm ứng trong tài liệu.\n\nNhân viên có khoản tạm ứng chưa thanh toán sẽ không được phê duyệt tạm ứng mới. ## Phê duyệt Tạm ứng dưới 5.000.000 VNĐ: trưởng phòng phê duyệt. Từ 5.000.000 VNĐ trở lên: cần thêm phê duyệt Kế toán trưởng.",
+        "Đoạn văn nằm trong tài liệu hướng dẫn về chính sách đào tạo của công ty.\n\nCông ty chi trả chi phí đào tạo bên ngoài (chứng chỉ, khóa học dài hạn, hội thảo) cho nhân viên có **thâm niên từ 1 năm trở lên**. Chi phí được tài trợ tối đa **30.000.000 VNĐ/khóa** và cần phê duyệt của Giám đốc phòng ban. ## Cam kết hoàn chi"
+      ],
+      "avg_score": 0.333333333325,
+      "worst_metric": "faithfulness",
+      "score": 0.0,
+      "diagnosis": "LLM hallucinating",
+      "suggested_fix": "Tighten prompt, lower temperature, or provide more direct context"
+    },
+    {
+      "question": "Nghỉ phép không lương 20 ngày cần ai phê duyệt?",
+      "answer": "Không tìm thấy.",
+      "ground_truth": "Nghỉ 16-30 ngày cần phê duyệt của Giám đốc điều hành (CEO). Lưu ý: nghỉ trên 14 ngày không lương, nhân viên phải tự đóng phần bảo hiểm của mình.",
+      "contexts": [
+        "Đoạn văn này nằm trong phần quy định về nghỉ phép trong tài liệu nghi_phep_khong_luong.md.\n\nNghỉ từ 1-5 ngày: trưởng phòng phê duyệt. Nghỉ từ 6-15 ngày: cần thêm phê duyệt của Giám đốc Nhân sự. Nghỉ từ 16-30 ngày: cần phê duyệt của **Giám đốc điều hành (CEO)**. ## Ảnh hưởng đến phúc lợi",
+        "Đoạn văn nằm trong tài liệu hướng dẫn về quy trình nghỉ phép của công ty.\n\nPhép năm phải được đăng ký trước ít nhất 3 ngày làm việc qua hệ thống HR Portal. Nghỉ phép từ 3 ngày trở lên cần được trưởng phòng phê duyệt. Phép năm không sử dụng hết có thể chuyển tối đa 5 ngày sang năm sau, hết hạn vào 31/03 năm kế tiếp.",
+        "Đoạn văn này nằm trong phần quy định về quyền lợi của nhân viên thử việc trong tài liệu thu_viec.md.\n\nPhụ cấp ăn trưa được áp dụng đầy đủ từ ngày đầu tiên. ## Quyền lợi trong thử việc Nhân viên thử việc **KHÔNG được nghỉ phép năm**. Trường hợp cần nghỉ việc riêng, nhân viên thử việc phải xin nghỉ không lương và được trưởng phòng phê duyệt."
+      ],
+      "avg_score": 0.374999999975,
+      "worst_metric": "faithfulness",
+      "score": 0.0,
+      "diagnosis": "LLM hallucinating",
+      "suggested_fix": "Tighten prompt, lower temperature, or provide more direct context"
+    },
+    {
+      "question": "Một nhân viên Senior có 9 năm thâm niên được nghỉ bao nhiêu ngày phép năm và lương trong khoảng nào?",
+      "answer": "Nhân viên có 9 năm thâm niên được nghỉ 18 ngày phép năm (15 + 3). Lương được xác định trong tài liệu không có thông tin cụ thể, nên không tìm thấy.",
+      "ground_truth": "Theo chính sách v2024: 15 ngày cơ bản + 3 ngày thâm niên (9÷3=3) = 18 ngày phép. Lương Senior (P3-P4): 20-35 triệu VNĐ/tháng.",
+      "contexts": [
+        "Đoạn văn này nằm trong tài liệu hướng dẫn về quy định nghỉ phép năm cho nhân viên.\n\nVí dụ: nhân viên 9 năm thâm niên được 18 ngày phép (15 + 3). ## Quy định sử dụng Phép năm phải được đăng ký trước ít nhất 2 ngày làm việc qua hệ thống HR Portal. Nghỉ phép từ 5 ngày trở lên cần được trưởng phòng phê duyệt.",
+        "Đoạn văn này nằm trong phần quy định về chế độ nghỉ phép của tài liệu.\n\nNhân viên có thâm niên từ **5 năm trở lên** được cộng thêm **1 ngày phép** cho mỗi 5 năm làm việc liên tục. Ví dụ: nhân viên 10 năm thâm niên được 14 ngày phép. ## Quy định sử dụng",
+        "Đoạn văn nằm trong tài liệu liên quan đến chính sách nghỉ phép của công ty.\n\n# Chính sách nghỉ phép năm (Phiên bản 2023) > Phiên bản: 1.0 | Ngày hiệu lực: 01/01/2023 | Phòng ban: Nhân sự ## Số ngày phép năm Mỗi nhân viên chính thức được hưởng **12 ngày phép năm** có lương."
+      ],
+      "avg_score": 0.5749999999916666,
+      "worst_metric": "answer_relevancy",
+      "score": 0.0,
+      "diagnosis": "Answer doesn't match question",
+      "suggested_fix": "Improve prompt template and instructions"
+    },
+    {
+      "question": "Lương thử việc của nhân viên Junior mức cao nhất là bao nhiêu?",
+      "answer": "Lương thử việc của nhân viên Junior mức cao nhất là 17.000.000 VNĐ.",
+      "ground_truth": "Junior cao nhất là 20.000.000 VNĐ/tháng. Lương thử việc = 85% x 20.000.000 = 17.000.000 VNĐ/tháng.",
+      "contexts": [
+        "Đoạn văn nằm trong phần chia sẻ thông tin về lương trong tài liệu bang_luong_2024.md.\n\n| Senior (P3-P4) | 20.000.000 - 35.000.000 | | Lead (P5) | 35.000.000 - 50.000.000 | | Manager (M1-M2) | 45.000.000 - 70.000.000 | ## Lương thử việc Nhân viên trong thời gian thử việc được nhận **85% lương** của cấp bậc tương ứng.",
+        "Đoạn văn nằm trong phần nói về chính sách thử việc trong tài liệu thu_viec.md.\n\nĐối với vị trí quản lý cấp cao (Manager trở lên), thời gian thử việc có thể kéo dài đến 90 ngày. ## Lương thử việc Nhân viên thử việc được nhận **85% mức lương** của cấp bậc tương ứng theo bảng lương công ty.",
+        "Đoạn văn nằm ở đầu tài liệu bang_luong_2024.md.\n\n# Bảng lương năm 2024 > Phiên bản: 3.0 | Ngày hiệu lực: 01/01/2024 | Phòng ban: Nhân sự & Tài chính ## Khung lương theo cấp bậc | Cấp bậc | Lương gross (VNĐ/tháng) | |----------|--------------------------| | Junior (P1-P2) | 12.000.000 - 20.000.000 |"
+      ],
+      "avg_score": 0.7060274389107011,
+      "worst_metric": "faithfulness",
+      "score": 0.0,
+      "diagnosis": "LLM hallucinating",
+      "suggested_fix": "Tighten prompt, lower temperature, or provide more direct context"
+    },
+    {
+      "question": "Nhân viên tạm ứng 15 triệu, sau 20 ngày mới thanh toán. Bị phạt bao nhiêu?",
+      "answer": "Nhân viên tạm ứng 15 triệu và sau 20 ngày mới thanh toán, sẽ bị phạt 2%/tháng trên số tiền chưa hoàn ứng. \n\nTính phạt:\n- Thời gian quá hạn: 20 ngày (trên 15 ngày quy định).\n- Số tiền chưa hoàn ứng: 15 triệu VNĐ.\n\nPhí phạt 2% trên 15 triệu:\n- 2% của 15 triệu = 0.02 x 15,000,000 = 300,000 VNĐ.\n\nNhân viên sẽ bị phạt 300,000 VNĐ.",
+      "ground_truth": "Thời hạn thanh toán là 15 ngày. Quá hạn 5 ngày, bị tính phí 2%/tháng trên 15.000.000 VNĐ = 300.000 VNĐ/tháng (tính pro-rata khoảng 50.000 VNĐ cho 5 ngày).",
+      "contexts": [
+        "Đoạn văn nằm trong phần quy định về quản lý tạm ứng trong tài liệu.\n\nTrường hợp công tác dài ngày, thời hạn tính từ ngày kết thúc chuyến công tác. ## Phạt quá hạn Khoản tạm ứng chưa thanh toán sau 15 ngày sẽ bị tính phí **2%/tháng** trên số tiền chưa hoàn ứng. Phí này được khấu trừ vào lương tháng kế tiếp.",
+        "Đoạn văn nằm trong phần quy định về tạm ứng trong tài liệu.\n\nNhân viên có khoản tạm ứng chưa thanh toán sẽ không được phê duyệt tạm ứng mới. ## Phê duyệt Tạm ứng dưới 5.000.000 VNĐ: trưởng phòng phê duyệt. Từ 5.000.000 VNĐ trở lên: cần thêm phê duyệt Kế toán trưởng.",
+        "Đoạn văn thuộc phần quy định về tạm ứng trong tài liệu.\n\nTạm ứng phải ghi rõ mục đích: công tác, mua sắm, tổ chức sự kiện hoặc chi phí dự án. ## Thời hạn thanh toán Khoản tạm ứng phải được thanh toán (nộp chứng từ hoàn ứng) trong vòng **15 ngày** kể từ ngày nhận tiền."
+      ],
+      "avg_score": 0.7252276180477122,
+      "worst_metric": "faithfulness",
+      "score": 0.2,
+      "diagnosis": "LLM hallucinating",
+      "suggested_fix": "Tighten prompt, lower temperature, or provide more direct context"
+    },
+    {
+      "question": "Bao lâu phải đổi mật khẩu một lần?",
+      "answer": "Có hai chu kỳ thay đổi mật khẩu được đề cập. Một là mỗi 120 ngày trong hướng dẫn về bảo mật mật khẩu và một là mỗi 90 ngày trong hướng dẫn về lưu trữ và bảo mật mật khẩu.",
+      "ground_truth": "Theo chính sách hiện hành (v2.0), mật khẩu phải được thay đổi mỗi 120 ngày. Chính sách cũ yêu cầu 90 ngày nhưng đã bị thay thế.",
+      "contexts": [
+        "Đoạn văn nằm trong tài liệu hướng dẫn về bảo mật mật khẩu.\n\nPhương thức MFA được chấp nhận: ứng dụng Authenticator (ưu tiên), SMS OTP, hoặc YubiKey. ## Chu kỳ thay đổi Mật khẩu phải được thay đổi **mỗi 120 ngày**. Hệ thống tự động nhắc nhở trước 14 ngày. Mật khẩu mới không được trùng với 5 mật khẩu gần nhất.",
+        "Đoạn văn nằm ở phần hướng dẫn về lưu trữ và bảo mật mật khẩu trong tài liệu.\n\nKhông được sử dụng tên đăng nhập hoặc các thông tin cá nhân dễ đoán làm mật khẩu. ## Chu kỳ thay đổi Mật khẩu phải được thay đổi **mỗi 90 ngày**. Hệ thống sẽ tự động nhắc nhở trước 7 ngày. Mật khẩu mới không được trùng với 3 mật khẩu gần nhất. ## Lưu ý",
+        "Đoạn văn nằm trong tài liệu hướng dẫn về chính sách mật khẩu.\n\nTài khoản bị khóa sau 5 lần nhập sai liên tiếp. ## Chính sách thay thế Văn bản này thay thế Chính sách mật khẩu v1.0 ban hành ngày 01/01/2022."
+      ],
+      "avg_score": 0.8191130034107283,
+      "worst_metric": "faithfulness",
+      "score": 0.6666666666666666,
+      "diagnosis": "LLM hallucinating",
+      "suggested_fix": "Tighten prompt, lower temperature, or provide more direct context"
+    },
+    {
+      "question": "Nhân viên được tài trợ khóa học 25 triệu, nghỉ việc sau 8 tháng hoàn thành khóa học. Phải hoàn trả bao nhiêu?",
+      "answer": "100% chi phí đào tạo đã được tài trợ, tức là 25 triệu VNĐ.",
+      "ground_truth": "Nhân viên phải cam kết làm việc ít nhất 1 năm sau khi hoàn thành khóa học. Nghỉ sau 8 tháng là trước hạn cam kết, phải hoàn trả 100% chi phí tức 25.000.000 VNĐ.",
+      "contexts": [
+        "Đoạn văn nằm trong tài liệu hướng dẫn về chính sách đào tạo nhân viên của công ty.\n\nNhân viên được tài trợ đào tạo phải **cam kết làm việc tại công ty ít nhất 1 năm** sau khi hoàn thành khóa học. Nếu nghỉ việc trước thời hạn cam kết, nhân viên phải hoàn trả **100% chi phí** đào tạo đã được tài trợ. ## Quy trình 1.",
+        "Đoạn văn nằm trong tài liệu hướng dẫn về chính sách đào tạo của công ty.\n\nCông ty chi trả chi phí đào tạo bên ngoài (chứng chỉ, khóa học dài hạn, hội thảo) cho nhân viên có **thâm niên từ 1 năm trở lên**. Chi phí được tài trợ tối đa **30.000.000 VNĐ/khóa** và cần phê duyệt của Giám đốc phòng ban. ## Cam kết hoàn chi",
+        "Đoạn văn nằm ở phần mô tả chính sách tạm ứng trong tài liệu tài chính.\n\n# Chính sách tạm ứng > Phiên bản: 1.0 | Ngày hiệu lực: 01/01/2024 | Phòng ban: Tài chính ## Hạn mức tạm ứng Nhân viên có thể tạm ứng tối đa **20.000.000 VNĐ** cho mỗi lần đề xuất."
+      ],
+      "avg_score": 0.8208659223143105,
+      "worst_metric": "faithfulness",
+      "score": 0.5,
+      "diagnosis": "LLM hallucinating",
+      "suggested_fix": "Tighten prompt, lower temperature, or provide more direct context"
+    },
+    {
+      "question": "Muốn mua thiết bị trị giá 55 triệu cần ai phê duyệt?",
+      "answer": "Cần Tổng Giám đốc (CEO) phê duyệt.",
+      "ground_truth": "Đơn hàng trên 50.000.000 VNĐ cần Tổng Giám đốc (CEO) phê duyệt.",
+      "contexts": [
+        "Đoạn văn nằm trong phần quy trình mua sắm của tài liệu mua_sam.md.\n\n# Quy trình mua sắm > Phiên bản: 2.2 | Ngày hiệu lực: 01/04/2024 | Phòng ban: Hành chính & Tài chính ## Thẩm quyền phê duyệt | Giá trị đơn hàng | Người phê duyệt | |-------------------|-----------------| | Dưới **5.000.000 VNĐ** | Trưởng phòng (Manager) |",
+        "Đoạn văn nằm trong phần hướng dẫn về quy trình mua sắm thiết bị CNTT trong tài liệu.\n\nMua sắm thiết bị CNTT (laptop, server, phần mềm) cần có xác nhận của phòng CNTT về cấu hình kỹ thuật trước khi đề xuất. Đơn hàng khẩn cấp có thể bỏ qua yêu cầu 3 báo giá nhưng phải có giải trình bằng văn bản.",
+        "Đoạn văn này nằm trong phần quy trình đề xuất mua sắm của tài liệu.\n\n| Từ **5.000.000 - 50.000.000 VNĐ** | Giám đốc phòng ban (Director) | | Trên **50.000.000 VNĐ** | Tổng Giám đốc (CEO) | ## Quy trình đề xuất 1. Tạo phiếu đề xuất mua sắm trên hệ thống Procurement Portal 2."
+      ],
+      "avg_score": 0.8458430601768525,
+      "worst_metric": "context_precision",
+      "score": 0.5833333333041666,
+      "diagnosis": "Too many irrelevant chunks",
+      "suggested_fix": "Add reranking or metadata filter"
+    },
+    {
+      "question": "Nhân viên được nghỉ bao nhiêu ngày phép năm?",
+      "answer": "Nhân viên chính thức được hưởng **15 ngày phép năm** có lương.",
+      "ground_truth": "Theo chính sách hiện hành (v2024), nhân viên được nghỉ 15 ngày phép năm có lương. Chính sách cũ (v2023) là 12 ngày nhưng đã bị thay thế.",
+      "contexts": [
+        "Đoạn văn nằm trong tài liệu liên quan đến chính sách nghỉ phép của công ty.\n\n# Chính sách nghỉ phép năm (Phiên bản 2023) > Phiên bản: 1.0 | Ngày hiệu lực: 01/01/2023 | Phòng ban: Nhân sự ## Số ngày phép năm Mỗi nhân viên chính thức được hưởng **12 ngày phép năm** có lương.",
+        "Đoạn văn nằm ở phần đầu tài liệu về chính sách nghỉ phép năm 2024.\n\n# Chính sách nghỉ phép năm (Phiên bản 2024) > Phiên bản: 2.0 | Ngày hiệu lực: 01/01/2024 | Phòng ban: Nhân sự ## Số ngày phép năm Mỗi nhân viên chính thức được hưởng **15 ngày phép năm** có lương, tăng từ 12 ngày so với chính sách năm 2023.",
+        "Đoạn văn này nằm trong tài liệu hướng dẫn về quy định nghỉ phép năm cho nhân viên.\n\nVí dụ: nhân viên 9 năm thâm niên được 18 ngày phép (15 + 3). ## Quy định sử dụng Phép năm phải được đăng ký trước ít nhất 2 ngày làm việc qua hệ thống HR Portal. Nghỉ phép từ 5 ngày trở lên cần được trưởng phòng phê duyệt."
+      ],
+      "avg_score": 0.845933415381659,
+      "worst_metric": "context_precision",
+      "score": 0.5833333333041666,
+      "diagnosis": "Too many irrelevant chunks",
+      "suggested_fix": "Add reranking or metadata filter"
+    },
+    {
+      "question": "Có cần kích hoạt xác thực đa yếu tố (MFA) không?",
+      "answer": "Có, tất cả nhân viên bắt buộc phải kích hoạt MFA cho tài khoản email, VPN và các hệ thống nội bộ.",
+      "ground_truth": "Có, theo chính sách mật khẩu v2.0 hiện hành, tất cả nhân viên bắt buộc kích hoạt MFA cho email, VPN và hệ thống nội bộ. Chính sách cũ v1.0 không yêu cầu MFA.",
+      "contexts": [
+        "Đoạn văn nằm ở phần hướng dẫn về bảo mật trong tài liệu mat_khau_v2.md.\n\nKhuyến khích sử dụng passphrase dài hơn 16 ký tự. ## Xác thực đa yếu tố (MFA) Tất cả nhân viên **bắt buộc** kích hoạt MFA cho tài khoản email, VPN và các hệ thống nội bộ.",
+        "Đoạn văn nằm trong tài liệu hướng dẫn về bảo mật mật khẩu.\n\nPhương thức MFA được chấp nhận: ứng dụng Authenticator (ưu tiên), SMS OTP, hoặc YubiKey. ## Chu kỳ thay đổi Mật khẩu phải được thay đổi **mỗi 120 ngày**. Hệ thống tự động nhắc nhở trước 14 ngày. Mật khẩu mới không được trùng với 5 mật khẩu gần nhất.",
+        "Đoạn văn nằm trong phần hướng dẫn về quy trình mua sắm thiết bị CNTT trong tài liệu.\n\nMua sắm thiết bị CNTT (laptop, server, phần mềm) cần có xác nhận của phòng CNTT về cấu hình kỹ thuật trước khi đề xuất. Đơn hàng khẩn cấp có thể bỏ qua yêu cầu 3 báo giá nhưng phải có giải trình bằng văn bản."
+      ],
+      "avg_score": 0.8486805791043796,
+      "worst_metric": "context_recall",
+      "score": 0.5,
+      "diagnosis": "Missing relevant chunks",
+      "suggested_fix": "Improve chunking or add BM25 keyword search"
+    }
+  ]
+}

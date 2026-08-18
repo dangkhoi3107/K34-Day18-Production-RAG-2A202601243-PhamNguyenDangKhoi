@@ -1,9 +1,22 @@
 """Shared configuration for Lab 18."""
 
 import os
+import sys
+
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# --- Console encoding (Windows) ---
+# Console mặc định của Windows là cp1252 → print emoji/tiếng Việt sẽ raise
+# UnicodeEncodeError. config.py được import bởi mọi module nên đặt ở đây là
+# chỗ duy nhất cần fix.
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        try:
+            _stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
 
 # --- API Keys ---
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
